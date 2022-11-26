@@ -15,6 +15,7 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    
     public IActionResult Index()
     {
         List<Product> products = db.products.ToList();
@@ -36,6 +37,8 @@ public class HomeController : Controller
     {
         throw new NotImplementedException();
     }
+    
+    // Iaction result for sorting which sortes products by given parametres and passes it to the index page
     public IActionResult Sort(string? param)
     {
         var Students = db.products.ToList();
@@ -51,5 +54,23 @@ public class HomeController : Controller
                 break;
         }
         return View("Index", Students);
+    }
+
+    public IActionResult Products(string? param)
+    {
+        var Products = db.products.ToList();
+        switch (param)
+        {
+            case "phones":
+                Products = db.products.Where(x => x.pr_category == "Smartphones").ToList();
+                break;
+            case "gadgets":
+                Products = db.products.Where(x => x.pr_category == "Gadgets").ToList();
+                break;
+            default:
+                break;
+        }
+
+        return View("Index", Products);
     }
 }

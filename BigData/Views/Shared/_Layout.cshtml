@@ -48,7 +48,7 @@
                 <!-- Collapsible wrapper -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Navbar brand -->
-                    <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                    <a class="navbar-brand mt-2 mt-lg-0" asp-area="" asp-controller="Home" asp-action="Index">
                         Logotype
                     </a>
                     <!-- Left links -->
@@ -57,20 +57,17 @@
                             <a class="nav-link" href="#">О нас</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Товары</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Товары</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Все категории
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Телефоны и гаджеты</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Products" asp-route-param="phones">Телефоны</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Computers">Компьютеры</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Products" asp-route-param="gadgets">Гаджеты</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Телевизоры</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Камеры</a>
                             </div>
                         </li>
                     </ul>
